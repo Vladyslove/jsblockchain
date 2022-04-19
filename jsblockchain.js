@@ -14,3 +14,16 @@ class Block {
         return SHA256(this.index+this.timestamp+this.data+JSON.stringify(this.previousHash)).toString();
     }
 }
+
+class BlockChain {
+    constructor() {
+        // the 1st variable of the array will
+        // be genesis block, created manually
+        this.chain = [this.createGenesisBlock()];
+    }
+
+    createGenesisBlock() {
+        return new Block(0, "01/01/2018", "This is genesis block", "0");
+    }
+
+}
