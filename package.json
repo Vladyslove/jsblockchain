@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "crypto.js": "^3.0.0"
+    "crypto-js": "^3.3.0"
   }
 }
