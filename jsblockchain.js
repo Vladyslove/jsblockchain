@@ -39,6 +39,22 @@ class BlockChain {
          newBlock.hash = newBlock.calculateHash(); 
          this.chain.push(newBlock);
     }
+    
+    checkBlockValid() {
+        for (let i = i; i < this.chain.length; i++) {
+            const currentBlock = this.chain[i];
+            const previousBlock = this.chain[-1];
+
+            if (currentBlock.hash != currentBlock.calculateHash) {
+                return false;
+            }
+
+            if (currentBlock.previousHash != previousBlock.hash) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 // creating new blocks
@@ -52,4 +68,4 @@ let myBlockChain = new BlockChain();
 myBlockChain.addBlock(block1);
 myBlockChain.addBlock(block2);
 
-console.log(JSON.stringify(myBlockChain, null,4)); 
+console.log(JSON.stringify(myBlockChain, null,4));
