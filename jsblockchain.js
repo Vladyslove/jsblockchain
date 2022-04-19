@@ -41,16 +41,16 @@ class BlockChain {
     }
     
     checkBlockValid() {
-        for (let i = i; i < this.chain.length; i++) {
+        for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
-            const previousBlock = this.chain[-1];
+            const previousBlock = this.chain[i-1];
 
-            if (currentBlock.hash != currentBlock.calculateHash) {
+            if (currentBlock.hash != currentBlock.calculateHash()) {
                 return false;
             }
 
             if (currentBlock.previousHash != previousBlock.hash) {
-                return false;
+                return false; 
             }
         }
         return true;
@@ -69,3 +69,4 @@ myBlockChain.addBlock(block1);
 myBlockChain.addBlock(block2);
 
 console.log(JSON.stringify(myBlockChain, null,4));
+console.log("Validation check for the Block Chain: " + myBlockChain.checkBlockValid());
